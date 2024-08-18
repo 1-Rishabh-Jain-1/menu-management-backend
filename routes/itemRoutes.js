@@ -1,6 +1,7 @@
 import express from 'express';
 import {
     createItem,
+    searchItem,
     getAllItems,
     getItemById,
     getItemsByCategory,
@@ -11,6 +12,7 @@ import {
 const router = express.Router();
 
 router.post('/', createItem);
+router.get('/search', searchItem);
 router.get('/', getAllItems);
 router.get('/:id', getItemById);
 router.get('/category/:categoryId', getItemsByCategory);

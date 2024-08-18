@@ -6,7 +6,7 @@ const categorySchema = new mongoose.Schema({
   description: { type: String },
   taxApplicability: { type: Boolean, default: false },
   tax: { type: Number, default: 0 },
-  taxType: { type: String, enum: ['percentage', 'fixed'], default: 'fixed' }
+  taxType: { type: String, enum: ['Percentage', 'Fixed'], default: 'fixed' }
 }, { timestamps: true });
 
 const Category = mongoose.model('Category', categorySchema);

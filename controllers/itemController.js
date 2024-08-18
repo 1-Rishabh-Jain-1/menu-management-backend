@@ -12,6 +12,20 @@ export const createItem = async (req, res) => {
     }
 };
 
+export const searchItem = async (req, res) => {
+    try {
+        const itemName = req.query.name || '';
+
+        const items = await Item.find({
+            name: { $regex: itemName, $options: 'i' }
+        });
+
+        res.status(200).json(items);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 export const getAllItems = async (req, res) => {
     try {
         const items = await Item.find();
