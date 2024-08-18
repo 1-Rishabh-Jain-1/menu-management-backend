@@ -2,6 +2,9 @@ import express from 'express';
 import pkg from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import categoryRoutes from './src/routes/categoryRoutes.js';
+import subcategoryRoutes from './src/routes/subcategoryRoutes.js';
+import itemRoutes from './src/routes/itemRoutes.js';
 
 const { json } = pkg;
 dotenv.config();
@@ -14,12 +17,12 @@ app.use(json());
 
 // DB Connection
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.log(err));
 
-// Placeholder Routes
-app.get('/', (req, res) => {
-  res.send("Welcome to Menu Management API");
-});
+// Routes
+app.use('/api/categories', categoryRoutes);
+app.use('/api/subcategories', subcategoryRoutes);
+app.use('/api/items', itemRoutes);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
