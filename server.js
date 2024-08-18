@@ -2,9 +2,9 @@ import express from 'express';
 import pkg from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import categoryRoutes from './src/routes/categoryRoutes.js';
-import subcategoryRoutes from './src/routes/subcategoryRoutes.js';
-import itemRoutes from './src/routes/itemRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+import subcategoryRoutes from './routes/subcategoryRoutes.js';
+import itemRoutes from './routes/itemRoutes.js';
 
 const { json } = pkg;
 dotenv.config();

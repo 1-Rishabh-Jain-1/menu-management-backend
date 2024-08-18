@@ -1,6 +1,6 @@
-import Category from "../models/Category";
-import SubCategory from "../models/SubCategory";
-import Item from "../models/Item";
+import Category from "../models/Category.js";
+import SubCategory from "../models/SubCategory.js";
+import Item from "../models/Item.js";
 
 export const createItem = async (req, res) => {
     try {
